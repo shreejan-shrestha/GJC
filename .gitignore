@@ -27,3 +27,6 @@ dist-ssr
 
 # vscode
 .vscode
+
+#pb
+/pb/pb_data
