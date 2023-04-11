@@ -32,7 +32,7 @@ const Navbar = () => {
             <li
               key={nav.id}
               className={`${
-                active === nav.title ? "text-white" : "text-lightgreen"
+                active === nav.title ? "text-green" : "text-primary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
@@ -58,7 +58,7 @@ const Navbar = () => {
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  className={`font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? " text-secondary" : "text-secondary"
                   }`}
                   onClick={() => {

@@ -41,7 +41,7 @@ const Overview = () => {
         ))}
       </div>
 
-      <motion.div variants={textVariant(0.5)}>
+      <motion.div variants={textVariant(1)}>
         <h2 className={`${styles.sectionHeadText} mt-20`}>Or Your Dream Apartment</h2>
       </motion.div>
 
@@ -51,7 +51,7 @@ const Overview = () => {
         ))}
       </div>
 
-      <motion.div variants={textVariant(1)}>
+      <motion.div variants={textVariant(2)}>
         <h2 className={`${styles.sectionHeadText} mt-20`}>Or Your Dream Land</h2>
       </motion.div>
 

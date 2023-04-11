@@ -16,7 +16,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-greycolor text-[17px] max-w-3xl leading-[30px]'
+        className='mt-4 text-primary text-[17px] max-w-3xl leading-[30px]'
       >
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus consequatur deserunt commodi quo similique nesciunt nostrum architecto officiis expedita adipisci magni nam molestiae sapiente obcaecati ipsam exercitationem, quod, ducimus officia.
       </motion.p>
