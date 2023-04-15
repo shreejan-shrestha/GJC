@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import { styles } from "../styles";
-import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { styles } from "../../styles";
+import { SectionWrapper } from "../../hoc";
+import { textVariant } from "../../utils/motion";
 
-import OverviewCard from "./cards/OverviewCard";
+import OverviewCard from "../cards/OverviewCard";
 
-import client from '../lib/pocketbase';
+import client from '../../lib/pocketbase';
 
 const Overview = () => {
   const [housing, setHousing] = useState([]);

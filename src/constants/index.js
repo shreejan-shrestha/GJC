@@ -2,8 +2,8 @@ import { house, land, apartment} from "../assets";
 
 const navLinks = [
   {
-    id: "home",
-    title: "Home",
+    id: "housing",
+    title: "Housing",
   },
   {
     id: "land",

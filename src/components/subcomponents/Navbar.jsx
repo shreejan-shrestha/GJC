@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { menu, close } from "../assets";
+import { styles } from "../../styles";
+import { navLinks } from "../../constants";
+import { GJCwhite, menu, close } from "../../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -11,41 +11,46 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 absolute top-0 z-40 bg-transparent`}
+      className={`${styles.paddingX} w-full flex items-center py-5 absolute top-0 z-40 bg-transparent`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        <div>
+          <Link to="/">
+            <img
+              src={GJCwhite}
+              alt="GJC logo"
+              className="h-[50px] object-contain text-white"
+            />
+          </Link>
+        </div>
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
-        >
-          
-        </Link>
+        ></Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
                 active === nav.title ? "text-green" : "text-primary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } hover:text-green transition-colors text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              <a href={`${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
             onClick={() => setToggle(!toggle)}
           />
 
@@ -54,7 +59,7 @@ const Navbar = () => {
               !toggle ? "hidden" : "flex"
             } p-6 bg-white absolute top-20 right-0 my-2 min-w-full z-10`}
           >
-            <ul className='list-none flex justify-end items-center flex-1 flex-col gap-4'>
+            <ul className="list-none flex justify-end items-center flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
@@ -66,7 +71,7 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <a href={`${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
             </ul>

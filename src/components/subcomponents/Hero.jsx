@@ -1,6 +1,6 @@
 
-import { styles } from "../styles";
-import { HouseCanvas } from "./canvas";
+import { styles } from "../../styles";
+import { HouseCanvas } from "../canvas";
 
 const Hero = () => {
   return (
