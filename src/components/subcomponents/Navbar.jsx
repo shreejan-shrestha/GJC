@@ -1,85 +1,96 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { styles } from "../../styles";
 import { navLinks } from "../../constants";
 import { GJCwhite, menu, close } from "../../assets";
 
-const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+const Navbar = ({ isHomePage }) => {
+    const navigate = useNavigate();
 
-  return (
-    <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 absolute top-0 z-40 bg-transparent`}
-    >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        <div>
-          <Link to="/">
-            <img
-              src={GJCwhite}
-              alt="GJC logo"
-              className="h-[50px] object-contain text-white"
-            />
-          </Link>
-        </div>
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        ></Link>
+    const [active, setActive] = useState("");
+    const [toggle, setToggle] = useState(false);
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-green" : "text-primary"
-              } hover:text-green transition-colors text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-        </ul>
+    return (
+        <nav
+            className={`${styles.paddingX} ${
+                isHomePage == "/" ? "absolute" : "relative"
+            } w-full flex items-center py-5 top-0 z-40 bg-transparent`}
+        >
+            <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+                <div>
+                    <Link to="/">
+                        <img
+                            src={GJCwhite}
+                            alt="GJC logo"
+                            className="h-[75px] object-contain"
+                        />
+                    </Link>
+                </div>
+                <Link
+                    to="/"
+                    className="flex items-center gap-2"
+                    onClick={() => {
+                        setActive("");
+                        window.scrollTo(0, 0);
+                    }}
+                ></Link>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28px] h-[28px] object-contain"
-            onClick={() => setToggle(!toggle)}
-          />
+                <ul className="list-none hidden sm:flex flex-row gap-10">
+                    {navLinks.map((nav) => (
+                        <li
+                            key={nav.id}
+                            className={`${
+                                active === nav.title
+                                    ? "text-green"
+                                    : "text-primary"
+                            } hover:text-green transition-colors text-[18px] font-medium cursor-pointer`}
+                            onClick={() => {
+                                setActive(nav.title);
+                                navigate("/", { replace: true });
+                            }}
+                        >
+                            <a href={`${nav.id}`}>{nav.title}</a>
+                        </li>
+                    ))}
+                </ul>
 
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 bg-white absolute top-20 right-0 my-2 min-w-full z-10`}
-          >
-            <ul className="list-none flex justify-end items-center flex-1 flex-col gap-4">
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? " text-secondary" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+                <div className="sm:hidden flex flex-1 justify-end items-center">
+                    <img
+                        src={toggle ? close : menu}
+                        alt="menu"
+                        className="w-[28px] h-[28px] object-contain"
+                        onClick={() => setToggle(!toggle)}
+                    />
+
+                    <div
+                        className={`${
+                            !toggle ? "hidden" : "flex"
+                        } p-6 bg-white absolute top-20 right-0 my-2 min-w-full z-10`}
+                    >
+                        <ul className="list-none flex justify-end items-center flex-1 flex-col gap-4">
+                            {navLinks.map((nav) => (
+                                <li
+                                    key={nav.id}
+                                    className={`font-medium cursor-pointer text-[16px] ${
+                                        active === nav.title
+                                            ? " text-secondary"
+                                            : "text-secondary"
+                                    }`}
+                                    onClick={() => {
+                                        setToggle(!toggle);
+                                        setActive(nav.title);
+                                    }}
+                                >
+                                    <a href={`${nav.id}`}>{nav.title}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
 };
 
 export default Navbar;
