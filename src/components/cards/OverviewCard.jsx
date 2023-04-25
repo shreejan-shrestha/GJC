@@ -70,7 +70,7 @@ const OverviewCard = ({
 
                                 {isLand ? (
                                     <div className="flex flex-col justify-center items-center">
-                                        <p className="mt-2 text-secondary text-[20px]">
+                                        <p className="mt-2 text-secondary text-[24px]">
                                             {landSize}
                                         </p>
                                         <p className="mt-2 text-secondary text-[14px]">
@@ -80,7 +80,7 @@ const OverviewCard = ({
                                 ) : (
                                     <div className="grid grid-cols-2 gap-2">
                                         <div className="flex flex-col justify-center items-center">
-                                            <p className="mt-2 text-secondary text-[20px]">
+                                            <p className="mt-2 text-secondary text-[24px]">
                                                 {bedroom}
                                             </p>
                                             <p className="mt-2 text-secondary text-[14px]">
@@ -88,7 +88,7 @@ const OverviewCard = ({
                                             </p>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
-                                            <p className="mt-2 text-secondary text-[20px]">
+                                            <p className="mt-2 text-secondary text-[24px]">
                                                 {livingRoom}
                                             </p>
                                             <p className="mt-2 text-secondary text-[14px]">
@@ -96,7 +96,7 @@ const OverviewCard = ({
                                             </p>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
-                                            <p className="mt-2 text-secondary text-[20px]">
+                                            <p className="mt-2 text-secondary text-[24px]">
                                                 {kitchen}
                                             </p>
                                             <p className="mt-2 text-secondary text-[14px]">
@@ -104,7 +104,7 @@ const OverviewCard = ({
                                             </p>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
-                                            <p className="mt-2 text-secondary text-[20px]">
+                                            <p className="mt-2 text-secondary text-[24px]">
                                                 {bathroom}
                                             </p>
                                             <p className="mt-2 text-secondary text-[14px]">

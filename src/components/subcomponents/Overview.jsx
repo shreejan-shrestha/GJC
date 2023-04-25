@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { styles } from "../../styles";
 import { SectionWrapper } from "../../hoc";
-import { textVariant } from "../../utils/motion";
+import { textVariant, fadeIn } from "../../utils/motion";
 
 import OverviewCard from "../cards/OverviewCard";
 
@@ -57,7 +57,10 @@ const Overview = () => {
                 </h2>
             </motion.div>
 
-            <div className="mt-20 flex flex-wrap gap-7">
+            <motion.div
+                variants={fadeIn("up", "spring", 0.5, 0.75)}
+                className="mt-20 flex flex-wrap gap-7"
+            >
                 {housing.map((housing, index) => (
                     <OverviewCard
                         key={`housing-${index}`}
@@ -77,7 +80,7 @@ const Overview = () => {
                         category="housing"
                     />
                 ))}
-            </div>
+            </motion.div>
 
             <motion.div variants={textVariant(1)}>
                 <h2 className={`${styles.sectionHeadText} mt-20`}>
@@ -85,7 +88,10 @@ const Overview = () => {
                 </h2>
             </motion.div>
 
-            <div className="mt-20 flex flex-wrap gap-7">
+            <motion.div
+                variants={fadeIn("up", "spring", 1.5, 0.75)}
+                className="mt-20 flex flex-wrap gap-7"
+            >
                 {apartments.map((apartments, index) => (
                     <OverviewCard
                         key={`apartments-${index}`}
@@ -105,7 +111,7 @@ const Overview = () => {
                         category="apartments"
                     />
                 ))}
-            </div>
+            </motion.div>
 
             <motion.div variants={textVariant(2)}>
                 <h2 className={`${styles.sectionHeadText} mt-20`}>
@@ -113,7 +119,10 @@ const Overview = () => {
                 </h2>
             </motion.div>
 
-            <div className="mt-20 flex flex-wrap gap-7">
+            <motion.div
+                variants={fadeIn("up", "spring", 3, 0.75)}
+                className="mt-20 flex flex-wrap gap-7"
+            >
                 {land.map((land, index) => (
                     <OverviewCard
                         key={`land-${index}`}
@@ -131,7 +140,7 @@ const Overview = () => {
                         category="land"
                     />
                 ))}
-            </div>
+            </motion.div>
         </>
     );
 };

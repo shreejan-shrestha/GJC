@@ -6,8 +6,13 @@ import { styles } from "../../styles";
 import { SectionWrapper } from "../../hoc";
 import { slideIn } from "../../utils/motion";
 
-const Contact = () => {
+import { useParams } from "react-router-dom";
+
+const Appointment = () => {
     const formRef = useRef();
+
+    const { category, detailId } = useParams();
+
     const [form, setForm] = useState({
         fname: "",
         lname: "",
@@ -35,10 +40,12 @@ const Contact = () => {
         emailjs
             .send(
                 "service_fngpcii",
-                "template_9uru13a",
+                "template_3q92qjr",
                 {
                     from_fname: form.fname,
                     from_lname: form.lname,
+                    category: `${category}`,
+                    id: `${detailId}`,
                     number: form.number,
                     to_name: "Ghar Jagga Clinic",
                     from_email: form.email,
@@ -79,8 +86,7 @@ const Contact = () => {
                 variants={slideIn("left", "tween", 0, 1)}
                 className="flex-[0.75] bg-slate-800 p-8 rounded-2xl"
             >
-                <p className={styles.sectionSubText}>Get in touch</p>
-                <h3 className={styles.sectionAltHeadText}>Contact us.</h3>
+                <h3 className={styles.sectionAltHeadText}>Appointment.</h3>
 
                 <form
                     ref={formRef}
@@ -165,4 +171,4 @@ const Contact = () => {
     );
 };
 
-export default SectionWrapper(Contact, "contact");
+export default SectionWrapper(Appointment, "appointment");

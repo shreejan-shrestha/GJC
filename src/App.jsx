@@ -7,6 +7,7 @@ import NotFound from "./components/pages/NotFound";
 import ContactUs from "./components/pages/ContactUs";
 import Navbar from "./components/subcomponents/Navbar";
 import DetailPage from "./components/pages/DetailPage";
+import AppointmentContact from "./components/pages/AppointmentContact";
 
 const App = () => {
     const location = useLocation();
@@ -25,6 +26,10 @@ const App = () => {
                     <Route
                         path="/detail/:category/:detailId/"
                         element={<DetailPage />}
+                    />
+                    <Route
+                        path="/appointment/:category/:detailId/"
+                        element={<AppointmentContact />}
                     />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

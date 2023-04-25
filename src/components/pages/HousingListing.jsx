@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-
 import { styles } from "../../styles";
-import { textVariant } from "../../utils/motion";
-
 import OverviewCard from "../cards/OverviewCard";
-
 import client from "../../lib/pocketbase";
 
 const HousingListing = () => {
@@ -79,11 +74,9 @@ const HousingListing = () => {
     return (
         <>
             <div className="flex flex-col justify-center items-center p-10">
-                <motion.div variants={textVariant()}>
-                    <h2 className={`${styles.sectionHeadText}`}>
-                        Find Your Dream House
-                    </h2>
-                </motion.div>
+                <h2 className={`${styles.sectionHeadText}`}>
+                    Find Your Dream House
+                </h2>
                 <div className="flex mt-10 md:w-[50vw] w-full">
                     <button
                         id="dropdown-button"
