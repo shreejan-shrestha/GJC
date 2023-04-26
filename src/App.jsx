@@ -8,6 +8,8 @@ import ContactUs from "./components/pages/ContactUs";
 import Navbar from "./components/subcomponents/Navbar";
 import DetailPage from "./components/pages/DetailPage";
 import AppointmentContact from "./components/pages/AppointmentContact";
+import AreaConverter from "./components/pages/AreaConverter";
+import Footer from "./components/subcomponents/Footer";
 
 const App = () => {
     const location = useLocation();
@@ -31,8 +33,12 @@ const App = () => {
                         path="/appointment/:category/:detailId/"
                         element={<AppointmentContact />}
                     />
+                    <Route path="/areaconverter" element={<AreaConverter />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+            </div>
+            <div>
+                <Footer />
             </div>
         </>
     );

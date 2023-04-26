@@ -17,6 +17,10 @@ const navLinks = [
         id: "contact",
         title: "Contact",
     },
+    {
+        id: "areaconverter",
+        title: "Area Converter",
+    },
 ];
 
 const services = [
