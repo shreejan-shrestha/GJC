@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { styles } from "../../styles";
 import OverviewCard from "../cards/OverviewCard";
 import client from "../../lib/pocketbase";
+import { motion } from "framer-motion";
 
 const HousingListing = () => {
     const [housing, setHousing] = useState([]);

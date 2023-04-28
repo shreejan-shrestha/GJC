@@ -21,7 +21,6 @@ const Overview = () => {
                 filter: 'premium = true && status = "Sale"',
             })
             .then((data) => {
-                console.log(data);
                 setHousing(data);
             });
     }, []);
@@ -33,7 +32,6 @@ const Overview = () => {
                 filter: 'premium = true && status = "Sale"',
             })
             .then((data) => {
-                console.log("TEST", data);
                 setApartments(data);
             });
     }, []);

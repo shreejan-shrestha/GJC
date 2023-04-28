@@ -1,4 +1,5 @@
 import { useLocation, Route, Routes } from "react-router-dom";
+import React from "react";
 import Home from "./components/pages/Home";
 import HousingListing from "./components/pages/HousingListing";
 import LandListing from "./components/pages/LandListing";
@@ -10,6 +11,7 @@ import DetailPage from "./components/pages/DetailPage";
 import AppointmentContact from "./components/pages/AppointmentContact";
 import AreaConverter from "./components/pages/AreaConverter";
 import Footer from "./components/subcomponents/Footer";
+import PageTransition from "./components/subcomponents/PageTransition";
 
 const App = () => {
     const location = useLocation();
@@ -18,8 +20,8 @@ const App = () => {
             <div>
                 <Navbar isHomePage={location.pathname} />
             </div>
-            <div>
-                <Routes>
+            <PageTransition>
+                <Routes key={location.pathname} location={location}>
                     <Route path="/" element={<Home />} />
                     <Route path="/housing" element={<HousingListing />} />
                     <Route path="/land" element={<LandListing />} />
@@ -36,10 +38,10 @@ const App = () => {
                     <Route path="/areaconverter" element={<AreaConverter />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-            </div>
-            <div>
-                <Footer />
-            </div>
+                <div>
+                    <Footer />
+                </div>
+            </PageTransition>
         </>
     );
 };

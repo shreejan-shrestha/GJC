@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { styles } from "../../styles";
@@ -11,6 +11,14 @@ const Navbar = ({ isHomePage }) => {
     const [active, setActive] = useState("");
     const [toggle, setToggle] = useState(false);
 
+    const handleNavigation = () => {
+        navigate("/", { replace: true });
+    };
+
+    const handleHomeNavigation = () => {
+        navigate("/", { replace: true });
+    };
+
     return (
         <nav
             className={`${styles.paddingX} ${
@@ -18,24 +26,17 @@ const Navbar = ({ isHomePage }) => {
             } w-full flex items-center py-5 top-0 z-40 bg-transparent`}
         >
             <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-                <div>
-                    <Link to="/">
-                        <img
-                            src={GJCwhite}
-                            alt="GJC logo"
-                            className="h-[75px] object-contain"
-                        />
-                    </Link>
-                </div>
-                <Link
-                    to="/"
-                    className="flex items-center gap-2"
+                <div
                     onClick={() => {
-                        setActive("");
-                        window.scrollTo(0, 0);
+                        handleHomeNavigation();
                     }}
-                ></Link>
-
+                >
+                    <img
+                        src={GJCwhite}
+                        alt="GJC logo"
+                        className="h-[75px] object-contain cursor-pointer"
+                    />
+                </div>
                 <ul className="list-none hidden sm:flex flex-row gap-10">
                     {navLinks.map((nav) => (
                         <li
@@ -47,7 +48,7 @@ const Navbar = ({ isHomePage }) => {
                             } hover:text-green transition-colors text-[18px] font-medium cursor-pointer`}
                             onClick={() => {
                                 setActive(nav.title);
-                                navigate("/", { replace: true });
+                                handleNavigation();
                             }}
                         >
                             <a href={`${nav.id}`}>{nav.title}</a>
