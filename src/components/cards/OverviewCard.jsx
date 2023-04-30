@@ -55,6 +55,7 @@ const OverviewCard = ({
                                 <h3 className="text-secondary font-bold text-[24px]">
                                     {title}
                                 </h3>
+                                <hr className="my-5" />
                                 <p className="mt-2 text-secondary text-[18px]">
                                     {location}, {district}
                                 </p>

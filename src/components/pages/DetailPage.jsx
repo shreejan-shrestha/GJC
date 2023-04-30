@@ -2,7 +2,6 @@ import { styles } from "../../styles";
 import { Link, useParams } from "react-router-dom";
 import client from "../../lib/pocketbase";
 import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -181,6 +180,16 @@ const DetailPage = ({ index }) => {
                                 <p className="my-4">
                                     {list.parking_description}
                                 </p>
+                            </div>
+                            <div className="bg-white md:h-[50vh] h-[30vh] md:w-auto w-[100%] mt-10">
+                                <iframe
+                                    src={list.map}
+                                    width="100%"
+                                    height="100%"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
                             </div>
                         </div>
                         <div className="col-span-1">
