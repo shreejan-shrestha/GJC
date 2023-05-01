@@ -1,9 +1,9 @@
-import { house, land, apartment } from "../assets";
+import { house, land, apartment, commercial } from "../assets";
 
 const navLinks = [
     {
         id: "housing",
-        title: "Housing",
+        title: "House",
     },
     {
         id: "land",
@@ -12,6 +12,10 @@ const navLinks = [
     {
         id: "apartments",
         title: "Apartment",
+    },
+    {
+        id: "commercial",
+        title: "Commercial",
     },
     {
         id: "contact",
@@ -26,15 +30,19 @@ const navLinks = [
 const services = [
     {
         icon: house,
-        title: "Housing",
+        title: "House",
+    },
+    {
+        icon: land,
+        title: "Land",
     },
     {
         icon: apartment,
         title: "Apartments",
     },
     {
-        icon: land,
-        title: "Land",
+        icon: commercial,
+        title: "Commercial",
     },
 ];
 

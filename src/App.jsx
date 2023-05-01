@@ -12,6 +12,7 @@ import AppointmentContact from "./components/pages/AppointmentContact";
 import AreaConverter from "./components/pages/AreaConverter";
 import Footer from "./components/subcomponents/Footer";
 import PageTransition from "./components/subcomponents/PageTransition";
+import CommercialListing from "./components/pages/CommercialListing";
 
 const App = () => {
     const location = useLocation();
@@ -26,6 +27,7 @@ const App = () => {
                     <Route path="/housing" element={<HousingListing />} />
                     <Route path="/land" element={<LandListing />} />
                     <Route path="/apartments" element={<ApartmentListing />} />
+                    <Route path="/commercial" element={<CommercialListing />} />
                     <Route path="/contact" element={<ContactUs />} />
                     <Route
                         path="/detail/:category/:detailId/"

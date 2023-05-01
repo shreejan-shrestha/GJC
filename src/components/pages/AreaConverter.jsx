@@ -89,11 +89,11 @@ const AreaConverter = () => {
 
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center px-5">
                 <h2 className={`${styles.sectionHeadText}`}>Area Converter</h2>
             </div>
-            <div className="flex flex-col flex-wrap lg:flex-row">
-                <div className="max-w-lg mx-auto my-8 bg-green rounded-lg shadow-lg p-6 py-10">
+            <div className="flex lg:flex-row flex-col flex-wrap px-5">
+                <div className="mx-auto my-8 bg-green rounded-lg shadow-lg p-6">
                     <div>
                         <label className="block font-bold mb-2 text-xl">
                             Ropani:
@@ -108,7 +108,7 @@ const AreaConverter = () => {
                             className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                             onClick={convertAllFromRopani}
                         >
-                            Convert to All
+                            All
                         </button>
                     </div>
                     <br />
@@ -122,18 +122,18 @@ const AreaConverter = () => {
                             value={aana}
                             onChange={(e) => setAana(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToRopani}
                             >
-                                Convert to Ropani
+                                Ropani
                             </button>
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToPaisa}
                             >
-                                Convert to Paisa
+                                Paisa
                             </button>
                         </div>
                     </div>
@@ -148,18 +148,18 @@ const AreaConverter = () => {
                             value={paisa}
                             onChange={(e) => setPaisa(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToAana}
                             >
-                                Convert to Aana
+                                Aana
                             </button>
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToDaam}
                             >
-                                Convert to Daam
+                                Daam
                             </button>
                         </div>
                     </div>
@@ -174,18 +174,18 @@ const AreaConverter = () => {
                         value={daam}
                         onChange={(e) => setDaam(e.target.value)}
                     />
-                    <div className="flex justify-between">
+                    <div className="flex flex-col md:flex-row gap-2">
                         <button
                             className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                             onClick={convertToAana}
                         >
-                            Convert to Aana
+                            Aana
                         </button>
                         <button
                             className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                             onClick={convertToDaam}
                         >
-                            Convert to Daam
+                            Daam
                         </button>
                     </div>
                 </div>
@@ -200,12 +200,12 @@ const AreaConverter = () => {
                             value={sqFt}
                             onChange={(e) => setSqFt(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToSqMeter}
                             >
-                                Convert to Sq. Meter
+                                Sq. Meter
                             </button>
                         </div>
                     </div>
@@ -220,12 +220,12 @@ const AreaConverter = () => {
                             value={sqMeter}
                             onChange={(e) => setSqMeter(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToSqFt}
                             >
-                                Convert to Sq. Feet
+                                Sq. Feet
                             </button>
                         </div>
                     </div>
@@ -245,7 +245,7 @@ const AreaConverter = () => {
                             className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                             onClick={convertAllFromBigha}
                         >
-                            Convert to All
+                            All
                         </button>
                     </div>
                     <br />
@@ -259,18 +259,18 @@ const AreaConverter = () => {
                             value={kattha}
                             onChange={(e) => setKattha(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToBigha}
                             >
-                                Convert to Bigha
+                                Bigha
                             </button>
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToDhur}
                             >
-                                Convert to Dhur
+                                Dhur
                             </button>
                         </div>
                     </div>
@@ -285,18 +285,18 @@ const AreaConverter = () => {
                             value={dhur}
                             onChange={(e) => setDhur(e.target.value)}
                         />
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToBigha}
                             >
-                                Convert to Bigha
+                                Bigha
                             </button>
                             <button
                                 className="bg-secondary hover:bg-primary text-primary hover:text-secondary font-bold py-2 px-4 rounded mt-4 transition"
                                 onClick={convertToKattha}
                             >
-                                Convert to Kattha
+                                Kattha
                             </button>
                         </div>
                     </div>

@@ -20,6 +20,8 @@ const OverviewCard = ({
     landSize,
     contact,
     category,
+    room,
+    isCommercial,
 }) => {
     return (
         <>
@@ -77,6 +79,33 @@ const OverviewCard = ({
                                         <p className="mt-2 text-secondary text-[14px]">
                                             Area
                                         </p>
+                                    </div>
+                                ) : isCommercial ? (
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col justify-center items-center">
+                                            <p className="mt-2 text-secondary text-[24px]">
+                                                {room}
+                                            </p>
+                                            <p className="mt-2 text-secondary text-[14px]">
+                                                Rooms
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <p className="mt-2 text-secondary text-[24px]">
+                                                {kitchen}
+                                            </p>
+                                            <p className="mt-2 text-secondary text-[14px]">
+                                                Kitchen
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <p className="mt-2 text-secondary text-[24px]">
+                                                {bathroom}
+                                            </p>
+                                            <p className="mt-2 text-secondary text-[14px]">
+                                                Bathroom
+                                            </p>
+                                        </div>
                                     </div>
                                 ) : (
                                     <div className="grid grid-cols-2 gap-2">

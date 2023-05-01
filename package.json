@@ -2,6 +2,7 @@
     "name": "GJC",
     "private": true,
     "version": "0.0.0",
+    "homepage": "http://nepalbargain.com",
     "type": "module",
     "scripts": {
         "dev": "vite",

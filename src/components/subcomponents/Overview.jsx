@@ -13,6 +13,7 @@ const Overview = () => {
     const [housing, setHousing] = useState([]);
     const [apartments, setApartments] = useState([]);
     const [land, setLand] = useState([]);
+    const [commercial, setCommercial] = useState([]);
 
     useEffect(() => {
         client
@@ -44,6 +45,17 @@ const Overview = () => {
             })
             .then((data) => {
                 setLand(data);
+            });
+    }, []);
+
+    useEffect(() => {
+        client
+            .collection("commercial")
+            .getFullList({
+                filter: "premium = true",
+            })
+            .then((data) => {
+                setCommercial(data);
             });
     }, []);
 
@@ -136,6 +148,37 @@ const Overview = () => {
                         landSize={land.land_size}
                         contact={land.contact_number}
                         category="land"
+                    />
+                ))}
+            </motion.div>
+
+            <motion.div variants={textVariant(3)}>
+                <h2 className={`${styles.sectionHeadText} mt-20`}>
+                    Or Your Dream Space
+                </h2>
+            </motion.div>
+
+            <motion.div
+                variants={fadeIn("up", "spring", 4, 0.75)}
+                className="mt-20 flex flex-wrap gap-7"
+            >
+                {commercial.map((commercial, index) => (
+                    <OverviewCard
+                        key={`commercial-${index}`}
+                        index={index}
+                        id={commercial.id}
+                        title={commercial.title}
+                        location={commercial.location}
+                        district={commercial.district}
+                        price={commercial.price}
+                        image={client.getFileUrl(commercial, commercial.image)}
+                        status={commercial.status}
+                        room={commercial.room}
+                        kitchen={commercial.kitchen}
+                        bathroom={commercial.bathroom}
+                        contact={commercial.contact_number}
+                        isCommercial={true}
+                        category="commercial"
                     />
                 ))}
             </motion.div>

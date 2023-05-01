@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { styles } from "../../styles";
 import { navLinks } from "../../constants";
-import { GJCwhite, menu, close } from "../../assets";
+import { GJCLogo, menu, close } from "../../assets";
 
 const Navbar = ({ isHomePage }) => {
     const navigate = useNavigate();
@@ -32,12 +32,12 @@ const Navbar = ({ isHomePage }) => {
                     }}
                 >
                     <img
-                        src={GJCwhite}
+                        src={GJCLogo}
                         alt="GJC logo"
                         className="h-[75px] object-contain cursor-pointer"
                     />
                 </div>
-                <ul className="list-none hidden sm:flex flex-row gap-10">
+                <ul className="list-none hidden lg:flex flex-row gap-10">
                     {navLinks.map((nav) => (
                         <li
                             key={nav.id}
@@ -56,7 +56,7 @@ const Navbar = ({ isHomePage }) => {
                     ))}
                 </ul>
 
-                <div className="sm:hidden flex flex-1 justify-end items-center">
+                <div className="lg:hidden flex flex-1 justify-end items-center">
                     <img
                         src={toggle ? close : menu}
                         alt="menu"
@@ -67,7 +67,7 @@ const Navbar = ({ isHomePage }) => {
                     <div
                         className={`${
                             !toggle ? "hidden" : "flex"
-                        } p-6 bg-white absolute top-20 right-0 my-2 min-w-full z-10`}
+                        } p-6 bg-white absolute top-20 mt-10 right-0 my-2 min-w-full z-10`}
                     >
                         <ul className="list-none flex justify-end items-center flex-1 flex-col gap-4">
                             {navLinks.map((nav) => (

@@ -13,6 +13,7 @@ const DetailPage = ({ index }) => {
     const [list, setList] = useState();
     const [images, setImages] = useState([]);
     const [isLand, setIsLand] = useState(false);
+    const [isCommercial, setIsCommercial] = useState(false);
     const { category, detailId } = useParams();
 
     useEffect(() => {
@@ -26,6 +27,8 @@ const DetailPage = ({ index }) => {
             }
             if (`${category}` == "land") {
                 setIsLand(true);
+            } else if (`${category}` == "commercial") {
+                setIsCommercial(true);
             }
         };
         fetchData();
@@ -82,12 +85,58 @@ const DetailPage = ({ index }) => {
                             <hr className="my-5" />
                             {isLand ? (
                                 <div className="grid grid-cols-2 md:grid-cols-2 gap-10">
-                                    <div className="flex flex-col justify-center items-center col-span-2">
+                                    <div className="flex flex-col justify-center items-start col-span-2">
                                         <p className="mt-2 text-primary text-[20px] md:text-[24px]">
                                             {list.land_size}
                                         </p>
-                                        <p className="mt-2 text-primary text-[14px]">
+                                        <p className="mt-2 text-primary text-[16px]">
                                             Area
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col justify-center items-start">
+                                        <p className="mt-2 text-primary text-[20px] md:text-[24px]">
+                                            {list.facing_direction}
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Facing
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Direction
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col justify-center items-start">
+                                        <p className="mt-2 text-primary text-[20px] md:text-[24px]">
+                                            {list.road_size}
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Road
+                                        </p>
+                                    </div>
+                                </div>
+                            ) : isCommercial ? (
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+                                    <div className="flex flex-col justify-center items-center">
+                                        <p className="mt-2 text-primary text-[20px] md:text-[24px]">
+                                            {list.room}
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Rooms
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col justify-center items-center">
+                                        <p className="mt-2 text-primary text-[20px] md:text-[24px]">
+                                            {list.kitchen}
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Kitchen
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col justify-center items-center">
+                                        <p className="mt-2 text-primary text-[20px] md:text-[24px]">
+                                            {list.bathroom}
+                                        </p>
+                                        <p className="mt-2 text-primary text-[14px]">
+                                            Bathroom
                                         </p>
                                     </div>
                                     <div className="flex flex-col justify-center items-center">

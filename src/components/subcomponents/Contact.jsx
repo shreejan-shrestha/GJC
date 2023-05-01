@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { styles } from "../../styles";
 import { SectionWrapper } from "../../hoc";
-import { slideIn } from "../../utils/motion";
+import { fadeIn, slideIn } from "../../utils/motion";
 import client from "../../lib/pocketbase";
 
 const Contact = () => {
@@ -134,7 +134,7 @@ const Contact = () => {
                 className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden`}
             >
                 <motion.div
-                    variants={slideIn("left", "tween", 0, 1)}
+                    variants={fadeIn("right", "spring", 0.5, 0.75)}
                     className="flex-[0.75] bg-slate-800 p-8 rounded-2xl"
                 >
                     <p className={styles.sectionSubText}>Get in touch</p>

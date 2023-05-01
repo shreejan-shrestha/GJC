@@ -3,12 +3,12 @@ import { styles } from "../../styles";
 import OverviewCard from "../cards/OverviewCard";
 import client from "../../lib/pocketbase";
 
-const HousingListing = () => {
-    const [housing, setHousing] = useState([]);
+const CommercialListing = () => {
+    const [commercial, setCommercial] = useState([]);
     const [toggle, setToggle] = useState(false);
     const [searchKeyword, setSearchKeyword] = useState();
     const [startSearch, setStartSearch] = useState(false);
-    const [filteredHousing, setFilteredHousing] = useState([]);
+    const [filteredCommercial, setFilteredCommercial] = useState([]);
 
     const [premium, setPremium] = useState(false);
     const [priceRange, setPriceRange] = useState(99999999999999999);
@@ -18,13 +18,13 @@ const HousingListing = () => {
 
     useEffect(() => {
         const loadResponse = async () => {
-            const response = await client.collection("housing").getFullList({
+            const response = await client.collection("commercial").getFullList({
                 sort: "-created",
             });
             if (response) {
             }
-            setFilteredHousing(response);
-            setHousing(response);
+            setFilteredCommercial(response);
+            setCommercial(response);
         };
         loadResponse();
     }, []);
@@ -32,7 +32,7 @@ const HousingListing = () => {
     useEffect(() => {
         if (searchKeyword || priceRange) {
             if (searchKeyword) {
-                let filter = housing.filter(
+                let filter = commercial.filter(
                     (res) =>
                         (res.title
                             .toLowerCase()
@@ -45,49 +45,51 @@ const HousingListing = () => {
                                 .includes(searchKeyword.toLowerCase())) &&
                         res.price <= priceRange
                 );
-                setFilteredHousing(filter);
+                setFilteredCommercial(filter);
             } else {
-                let filter = housing.filter((res) => res.price <= priceRange);
-                setFilteredHousing(filter);
+                let filter = commercial.filter(
+                    (res) => res.price <= priceRange
+                );
+                setFilteredCommercial(filter);
             }
         } else {
-            setFilteredHousing(housing);
+            setFilteredCommercial(commercial);
         }
     }, [startSearch]);
 
     useEffect(() => {
         if (premium) {
-            let filter = housing.filter((res) => res.premium == true);
-            setFilteredHousing(filter);
+            let filter = commercial.filter((res) => res.premium == true);
+            setFilteredCommercial(filter);
         } else {
-            setFilteredHousing(housing);
+            setFilteredCommercial(commercial);
         }
     }, [premium]);
 
     useEffect(() => {
         if (onRent) {
-            let filter = housing.filter((res) => res.status == "Rent");
-            setFilteredHousing(filter);
+            let filter = commercial.filter((res) => res.status == "Rent");
+            setFilteredCommercial(filter);
         } else {
-            setFilteredHousing(housing);
+            setFilteredCommercial(commercial);
         }
     }, [onRent]);
 
     useEffect(() => {
         if (onSale) {
-            let filter = housing.filter((res) => res.status == "Sale");
-            setFilteredHousing(filter);
+            let filter = commercial.filter((res) => res.status == "Sale");
+            setFilteredCommercial(filter);
         } else {
-            setFilteredHousing(housing);
+            setFilteredCommercial(commercial);
         }
     }, [onSale]);
 
     useEffect(() => {
         if (selectedRange) {
-            let filter = housing.filter((res) => res.price <= selectedRange);
-            setFilteredHousing(filter);
+            let filter = commercial.filter((res) => res.price <= selectedRange);
+            setFilteredCommercial(filter);
         } else {
-            setFilteredHousing(housing);
+            setFilteredCommercial(commercial);
         }
     }, [selectedRange]);
 
@@ -267,26 +269,25 @@ const HousingListing = () => {
             </div>
 
             <div className="mt-20 flex flex-wrap justify-center gap-7 px-2">
-                {filteredHousing.map((filteredHousing, index) => (
+                {filteredCommercial.map((filteredCommercial, index) => (
                     <OverviewCard
-                        key={`housing-${index}`}
+                        key={`commercial-${index}`}
                         index={index}
-                        id={filteredHousing.id}
-                        title={filteredHousing.title}
-                        location={filteredHousing.location}
-                        district={filteredHousing.district}
-                        price={filteredHousing.price}
+                        id={filteredCommercial.id}
+                        title={filteredCommercial.title}
+                        location={filteredCommercial.location}
+                        district={filteredCommercial.district}
+                        price={filteredCommercial.price}
                         image={client.getFileUrl(
-                            filteredHousing,
-                            filteredHousing.image[0]
+                            filteredCommercial,
+                            filteredCommercial.image[0]
                         )}
-                        status={filteredHousing.status}
-                        bedroom={filteredHousing.bedroom}
-                        livingRoom={filteredHousing.living_room}
-                        kitchen={filteredHousing.kitchen}
-                        bathroom={filteredHousing.bathroom}
-                        contact={filteredHousing.contact_number}
-                        category="housing"
+                        status={filteredCommercial.status}
+                        room={filteredCommercial.room}
+                        kitchen={filteredCommercial.kitchen}
+                        bathroom={filteredCommercial.bathroom}
+                        contact={filteredCommercial.contact_number}
+                        category="commercial"
                     />
                 ))}
             </div>
@@ -294,4 +295,4 @@ const HousingListing = () => {
     );
 };
 
-export default HousingListing;
+export default CommercialListing;

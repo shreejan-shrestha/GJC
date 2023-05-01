@@ -140,7 +140,7 @@ const Appointment = () => {
                 className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden`}
             >
                 <motion.div
-                    variants={slideIn("left", "tween", 0, 1)}
+                    variants={fadeIn("right", "spring", 0.5, 0.75)}
                     className="flex-[0.75] bg-slate-800 p-8 rounded-2xl"
                 >
                     <h3 className={styles.sectionAltHeadText}>Appointment.</h3>

@@ -18,6 +18,8 @@ const LandListing = () => {
     const [premium, setPremium] = useState(false);
     const [priceRange, setPriceRange] = useState(99999999999999999);
     const [selectedRange, setSelectedRange] = useState();
+    const [onRent, setOnRent] = useState(false);
+    const [onSale, setOnSale] = useState(false);
 
     useEffect(() => {
         const loadResponse = async () => {
@@ -68,6 +70,24 @@ const LandListing = () => {
     }, [premium]);
 
     useEffect(() => {
+        if (onRent) {
+            let filter = land.filter((res) => res.status == "Rent");
+            setFilteredLand(filter);
+        } else {
+            setFilteredLand(land);
+        }
+    }, [onRent]);
+
+    useEffect(() => {
+        if (onSale) {
+            let filter = land.filter((res) => res.status == "Sale");
+            setFilteredLand(filter);
+        } else {
+            setFilteredLand(land);
+        }
+    }, [onSale]);
+
+    useEffect(() => {
         if (selectedRange) {
             let filter = land.filter((res) => res.price <= selectedRange);
             setFilteredLand(filter);
@@ -85,10 +105,53 @@ const LandListing = () => {
                     </h2>
                 </motion.div>
                 <div className="flex mt-10 md:w-[50vw] w-full">
+                    <div className="relative w-full">
+                        <input
+                            type="search"
+                            id="search-dropdown"
+                            className="block p-2.5 w-full z-20 text-sm text-secondary bg-primary border-primary border-l-2 border rounded-xl focus:outline-none"
+                            placeholder="Search"
+                            onChange={(event) => {
+                                event.target.value
+                                    ? setSearchKeyword(event.target.value)
+                                    : setSearchKeyword();
+                            }}
+                            required
+                            onKeyDown={(event) => {
+                                if (event.key == "Enter") {
+                                    setStartSearch(!startSearch);
+                                }
+                            }}
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="top-0 right-0 p-2.5 mx-2 text-sm font-medium text-primary bg-green rounded-xl border border-green hover:bg-primary transition hover:text-secondary hover:border-primary"
+                        onClick={() => {
+                            setStartSearch(!startSearch);
+                        }}
+                    >
+                        <svg
+                            aria-hidden="true"
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            ></path>
+                        </svg>
+                        <span className="sr-only">Search</span>
+                    </button>
                     <button
                         id="dropdown-button"
                         data-dropdown-toggle="dropdown"
-                        className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-secondary bg-primary  rounded-l-xl hover:bg-gray-200 "
+                        className="flex justify-center items-center p-2.5 text-sm font-medium text-primary bg-green rounded-xl border border-green hover:bg-primary transition hover:text-secondary hover:border-primary"
                         type="button"
                         onClick={() => setToggle(!toggle)}
                     >
@@ -107,44 +170,6 @@ const LandListing = () => {
                             ></path>
                         </svg>
                     </button>
-                    <div className="relative w-full">
-                        <input
-                            type="search"
-                            id="search-dropdown"
-                            className="block p-2.5 w-full z-20 text-sm text-secondary bg-primary rounded-r-xl border-primary border-l-2 border  focus:outline-none"
-                            placeholder="Search"
-                            onChange={(event) => {
-                                event.target.value
-                                    ? setSearchKeyword(event.target.value)
-                                    : setSearchKeyword();
-                            }}
-                            required
-                        />
-                        <button
-                            type="submit"
-                            className="absolute top-0 right-0 p-2.5 text-sm font-medium text-primary bg-green rounded-r-xl border border-green hover:bg-primary transition hover:text-secondary hover:border-primary"
-                            onClick={() => {
-                                setStartSearch(!startSearch);
-                            }}
-                        >
-                            <svg
-                                aria-hidden="true"
-                                className="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                ></path>
-                            </svg>
-                            <span className="sr-only">Search</span>
-                        </button>
-                    </div>
                 </div>
             </div>
             <div className="flex justify-center items-center">
@@ -182,6 +207,32 @@ const LandListing = () => {
                                     onClick={() => setPremium(!premium)}
                                 >
                                     Premium
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    className={`inline-flex w-full px-4 py-2 dark:hover:bg-green dark:hover:text-primary  transition-all justify-start ${
+                                        onRent
+                                            ? "bg-secondary text-primary"
+                                            : "bg-white text-secondary"
+                                    }`}
+                                    onClick={() => setOnRent(!onRent)}
+                                >
+                                    Rent Only
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    className={`inline-flex w-full px-4 py-2 dark:hover:bg-green dark:hover:text-primary  transition-all justify-start ${
+                                        onSale
+                                            ? "bg-secondary text-primary"
+                                            : "bg-white text-secondary"
+                                    }`}
+                                    onClick={() => setOnSale(!onSale)}
+                                >
+                                    Sale Only
                                 </button>
                             </li>
                             <li>
