@@ -34,7 +34,7 @@ const Navbar = ({ isHomePage }) => {
                     <img
                         src={GJCLogo}
                         alt="GJC logo"
-                        className="h-[75px] object-contain cursor-pointer"
+                        className="h-[50px] md:h-[60px] object-contain cursor-pointer"
                     />
                 </div>
                 <ul className="list-none hidden lg:flex flex-row gap-10">

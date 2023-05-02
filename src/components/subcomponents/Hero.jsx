@@ -34,7 +34,7 @@ const Hero = () => {
                                 repeat: Infinity,
                                 repeatType: "loop",
                             }}
-                            className="w-3 h-3 rounded-full bg-primary mb-1"
+                            className="w-5 h-5 rounded-full bg-primary mb-1"
                         ></motion.div>
                     </div>
                 </a>

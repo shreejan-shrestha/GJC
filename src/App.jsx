@@ -13,6 +13,8 @@ import AreaConverter from "./components/pages/AreaConverter";
 import Footer from "./components/subcomponents/Footer";
 import PageTransition from "./components/subcomponents/PageTransition";
 import CommercialListing from "./components/pages/CommercialListing";
+import BlogListing from "./components/pages/BlogListing";
+import BlogPage from "./components/pages/BlogPage";
 
 const App = () => {
     const location = useLocation();
@@ -29,6 +31,11 @@ const App = () => {
                     <Route path="/apartments" element={<ApartmentListing />} />
                     <Route path="/commercial" element={<CommercialListing />} />
                     <Route path="/contact" element={<ContactUs />} />
+                    <Route path="/blogs" element={<BlogListing />} />
+                    <Route
+                        path="/detail/blogs/:detailId/"
+                        element={<BlogPage />}
+                    />
                     <Route
                         path="/detail/:category/:detailId/"
                         element={<DetailPage />}

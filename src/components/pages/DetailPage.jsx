@@ -6,10 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
-
 import { Navigation } from "swiper";
 
-const DetailPage = ({ index }) => {
+const DetailPage = () => {
     const [list, setList] = useState();
     const [images, setImages] = useState([]);
     const [isLand, setIsLand] = useState(false);
@@ -84,7 +83,7 @@ const DetailPage = ({ index }) => {
                             </div>
                             <hr className="my-5" />
                             {isLand ? (
-                                <div className="grid grid-cols-2 md:grid-cols-2 gap-10">
+                                <div className="grid grid-cols-2 gap-10">
                                     <div className="flex flex-col justify-center items-start col-span-2">
                                         <p className="mt-2 text-primary text-[20px] md:text-[24px]">
                                             {list.land_size}

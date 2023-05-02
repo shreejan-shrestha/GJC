@@ -58,6 +58,14 @@
     transform: translateZ(0);
 }
 
+.custom-rich-text-editor .ql-toolbar {
+    display: none;
+}
+
+.custom-rich-text-editor .ql-container {
+    border: none;
+}
+
 @keyframes mulShdSpin {
     0%,
     100% {

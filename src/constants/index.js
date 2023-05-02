@@ -18,12 +18,16 @@ const navLinks = [
         title: "Commercial",
     },
     {
-        id: "contact",
-        title: "Contact",
-    },
-    {
         id: "areaconverter",
         title: "Area Converter",
+    },
+    {
+        id: "blogs",
+        title: "Blog",
+    },
+    {
+        id: "contact",
+        title: "Contact",
     },
 ];
 
