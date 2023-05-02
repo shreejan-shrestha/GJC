@@ -37,7 +37,7 @@ const Navbar = ({ isHomePage }) => {
                         className="h-[50px] md:h-[60px] object-contain cursor-pointer"
                     />
                 </div>
-                <ul className="list-none hidden lg:flex flex-row gap-10">
+                <ul className="list-none hidden xl:flex flex-row gap-10">
                     {navLinks.map((nav) => (
                         <li
                             key={nav.id}
@@ -56,7 +56,7 @@ const Navbar = ({ isHomePage }) => {
                     ))}
                 </ul>
 
-                <div className="lg:hidden flex flex-1 justify-end items-center">
+                <div className="xl:hidden flex flex-1 justify-end items-center">
                     <img
                         src={toggle ? close : menu}
                         alt="menu"
