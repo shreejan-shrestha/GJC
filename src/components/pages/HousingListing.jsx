@@ -16,6 +16,13 @@ const HousingListing = () => {
     const [onRent, setOnRent] = useState(false);
     const [onSale, setOnSale] = useState(false);
 
+    client.beforeSend = function (url, options) {
+        options.headers = Object.assign({}, options.headers, {
+            "Access-Control-Allow-Origin": "*",
+        });
+        return { url, options };
+    };
+
     useEffect(() => {
         const loadResponse = async () => {
             const response = await client.collection("housing").getFullList({

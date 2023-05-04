@@ -6,14 +6,21 @@ import { styles } from "../../styles";
 const BlogListing = () => {
     const [blog, setBlog] = useState([]);
 
+    client.beforeSend = function (url, options) {
+        options.headers = Object.assign({}, options.headers, {
+            "Access-Control-Allow-Origin": "*",
+        });
+        return { url, options };
+    };
+
     useEffect(() => {
         const loadResponse = async () => {
             const response = await client.collection("blogs").getFullList({
                 sort: "-created",
             });
             if (response) {
+                setBlog(response);
             }
-            setBlog(response);
         };
         loadResponse();
     }, []);
