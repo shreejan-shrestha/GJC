@@ -3,7 +3,9 @@ import Appointment from "../subcomponents/Appointment";
 const AppointmentContact = () => {
     return (
         <>
-            <Appointment />
+            <div className="absolute w-full ">
+                <Appointment />
+            </div>
         </>
     );
 };

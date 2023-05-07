@@ -11,10 +11,6 @@ const pageVariants = {
         x: 0,
         y: 0,
     },
-    out: {
-        opacity: 0,
-        x: -100,
-    },
 };
 
 const pageTransition = {
@@ -25,15 +21,17 @@ const pageTransition = {
 
 const PageTransition = ({ children }) => {
     return (
-        <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-            transition={pageTransition}
-        >
-            <AnimatePresence>{children}</AnimatePresence>
-        </motion.div>
+        <AnimatePresence>
+            <motion.div
+                initial="initial"
+                animate="in"
+                exit={{ opacity: 0 }}
+                variants={pageVariants}
+                transition={pageTransition}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
     );
 };
 

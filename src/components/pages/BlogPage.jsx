@@ -2,8 +2,7 @@ import AdSense from "react-adsense";
 import { useParams } from "react-router-dom";
 import client from "../../lib/pocketbase";
 import { useEffect, useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const BlogPage = () => {
     const [blog, setBlog] = useState([]);
@@ -47,20 +46,32 @@ const BlogPage = () => {
     }, []);
 
     return (
-        <div className="w-[100vw] px-10 flex flex-col items-center md:items-start justify-center">
-            <div>
+        <>
+            <div className="px-10 flex flex-col items-center mb-10">
                 <h2
-                    className={`text-primary font-black md:text-[60px] sm:text-[50px] text-[28px]`}
+                    className={`text-primary font-black md:text-[60px] sm:text-[50px] text-[24px]`}
                 >
                     {blog.title}
                 </h2>
+                <div>By {blog.author}</div>
+                <div>{created}</div>
             </div>
-            <p className="mt-2 text-[16px] md:text-[18px] font-medium">
-                By {blog.author}
-            </p>
-            <p className="mt-2  text-[14px] font-medium">{created}</p>
+            <div>
+                <Swiper navigation={false} className="h-full w-full my-5">
+                    <SwiperSlide
+                        key={1}
+                        className="text-center flex justify-center items-center my-[-50px]"
+                    >
+                        <img
+                            src={client.getFileUrl(blog, blog.image)}
+                            alt="Blog images"
+                            className="block h-[80vh] md:h-[70vh] object-cover md:object-contain"
+                        />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
             <div class="inline-flex items-center justify-center w-full">
-                <hr class="w-64 h-1 my-8 bg-green border-0 rounded " />
+                <hr class="w-64 h-1 my-8 bg-gjcgreen border-0 rounded " />
                 <div class="hidden md:block absolute px-4 -translate-x-1/2 bg-transparent left-1/2 ">
                     <svg
                         aria-hidden="true"
@@ -76,26 +87,12 @@ const BlogPage = () => {
                     </svg>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
-                <div className="col-span-2">
-                    <ReactQuill
-                        value={blog.content}
-                        readOnly={true}
-                        modules={{ toolbar: toolbarOptions }}
-                        className="custom-rich-text-editor"
-                    />
-                </div>
-                <div className="col-span-1 bg-primary p-4 h-[50%]">
-                    <AdSense.Google
-                        client={`${ads.client_id}`}
-                        slot={`${ads.slot_id}`}
-                        style={{ display: "block" }}
-                        format="fluid"
-                        responsive="true"
-                    />
+            <div className="my-10">
+                <div className="px-10 flex flex-col items-center">
+                    <p className="w-full md:w-[70%]">{blog.content}</p>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

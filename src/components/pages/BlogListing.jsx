@@ -27,23 +27,25 @@ const BlogListing = () => {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center p-10">
-                <h2 className={`${styles.sectionHeadText}`}>GJC Blog</h2>
+            <div className="absolute w-full">
+                <div className="flex flex-col justify-center items-center p-10">
+                    <h2 className={`${styles.sectionHeadText}`}>GJC Blog</h2>
 
-                <div className="flex flex-wrap justify-center gap-7 px-2">
-                    {blog.map((blog, index) => (
-                        <BlogCard
-                            key={`blog-${index}`}
-                            index={index}
-                            id={blog.id}
-                            title={blog.title}
-                            content={blog.content}
-                            tagline={blog.tagline}
-                            image={client.getFileUrl(blog, blog.image)}
-                            author={blog.author}
-                            created={blog.created.slice(0, 10)}
-                        />
-                    ))}
+                    <div className="flex flex-wrap justify-center gap-7 px-2">
+                        {blog.map((blog, index) => (
+                            <BlogCard
+                                key={`blog-${index}`}
+                                index={index}
+                                id={blog.id}
+                                title={blog.title}
+                                content={blog.content}
+                                tagline={blog.tagline}
+                                image={client.getFileUrl(blog, blog.image)}
+                                author={blog.author}
+                                created={blog.created.slice(0, 10)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

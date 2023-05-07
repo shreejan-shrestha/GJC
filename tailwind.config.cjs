@@ -7,10 +7,11 @@ module.exports = {
             colors: {
                 primary: "#f3f3f3",
                 secondary: "#28364c",
-                green: "#4a7200",
+                gjcgreen: "#4a7200",
+                dark: "#191919",
             },
             boxShadow: {
-                card: "0px 35px 120px -15px #211e35",
+                card: "0px 10px 50px -15px #211e35",
             },
             screens: {
                 xs: "450px",

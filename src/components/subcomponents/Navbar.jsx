@@ -43,9 +43,9 @@ const Navbar = ({ isHomePage }) => {
                             key={nav.id}
                             className={`${
                                 active === nav.title
-                                    ? "text-green"
+                                    ? "text-gjcgreen"
                                     : "text-primary"
-                            } hover:text-green transition-colors text-[18px] font-medium cursor-pointer`}
+                            } hover:text-gjcgreen dark:hover:text-gray-400 transition-all text-[18px] font-medium cursor-pointer`}
                             onClick={() => {
                                 setActive(nav.title);
                                 handleNavigation();

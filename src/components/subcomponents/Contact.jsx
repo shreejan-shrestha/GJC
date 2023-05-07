@@ -130,97 +130,95 @@ const Contact = () => {
 
     return (
         <>
-            <div
-                className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden`}
-            >
-                <motion.div
-                    variants={fadeIn("right", "spring", 0.5, 0.75)}
-                    className="flex-[0.75] bg-slate-800 p-8 rounded-2xl"
+            <div className="w-full">
+                <div
+                    className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden `}
                 >
-                    <p className={styles.sectionSubText}>Get in touch</p>
-                    <h3 className={styles.sectionAltHeadText}>Contact us.</h3>
-
-                    <form
-                        ref={formRef}
-                        onSubmit={handleSubmit}
-                        className="mt-12 flex flex-col gap-8"
+                    <motion.div
+                        variants={fadeIn("right", "spring", 0.5, 0.75)}
+                        className="flex-[0.75] bg-slate-800 p-8 rounded-2xl"
                     >
-                        <label className="flex flex-col">
-                            <span className="text-white font-medium mb-4">
-                                First Name
-                            </span>
-                            <input
-                                type="text"
-                                name="fname"
-                                value={form.fname}
-                                onChange={handleChange}
-                                placeholder="What's your first name?"
-                                className="bg-primary py-4 px-6 placeholder:text-secondary placeholder:text-opacity-50 text-secondary rounded-lg outline-none border-none font-medium"
-                            />
-                        </label>
-                        <label className="flex flex-col">
-                            <span className="text-white font-medium mb-4">
-                                Last Name
-                            </span>
-                            <input
-                                type="text"
-                                name="lname"
-                                value={form.lname}
-                                onChange={handleChange}
-                                placeholder="What's your last name?"
-                                className="bg-primary py-4 px-6 placeholder:text-secondary placeholder:text-opacity-50 text-secondary rounded-lg outline-none border-none font-medium"
-                            />
-                        </label>
-                        <label className="flex flex-col">
-                            <span className="text-white font-medium mb-4">
-                                Your number
-                            </span>
-                            <input
-                                type="text"
-                                name="number"
-                                value={form.number}
-                                onChange={handleChange}
-                                placeholder="What's your phone number?"
-                                className="bg-primary py-4 px-6 placeholder:text-secondary placeholder:text-opacity-50 text-secondary rounded-lg outline-none border-none font-medium"
-                            />
-                        </label>
-                        <label className="flex flex-col">
-                            <span className="text-white font-medium mb-4">
-                                Your email
-                            </span>
-                            <input
-                                type="email"
-                                name="email"
-                                value={form.email}
-                                onChange={handleChange}
-                                placeholder="What's your email address?"
-                                className="bg-primary py-4 px-6 placeholder:text-secondary placeholder:text-opacity-50 text-secondary rounded-lg outline-none border-none font-medium"
-                            />
-                        </label>
-                        <label className="flex flex-col">
-                            <span className="text-white font-medium mb-4">
-                                Your Message
-                            </span>
-                            <textarea
-                                rows={7}
-                                name="message"
-                                value={form.message}
-                                onChange={handleChange}
-                                placeholder="What do you want to say?"
-                                className="bg-primary py-4 px-6 placeholder:text-secondary placeholder:text-opacity-50 text-secondary rounded-lg outline-none border-none font-medium"
-                            />
-                        </label>
+                        <h3 className={styles.sectionAltHeadText}>
+                            Contact us.
+                        </h3>
 
-                        <button
-                            type="submit"
-                            className="bg-secondary py-3 px-8 rounded-xl outline-none w-fit text-primary font-bold shadow-md shadow-slate-800"
+                        <form
+                            ref={formRef}
+                            onSubmit={handleSubmit}
+                            className="mt-12 flex flex-col gap-8"
                         >
-                            {loading ? "Sending..." : "Send"}
-                        </button>
-                    </form>
-                </motion.div>
+                            <label className="flex flex-col">
+                                <span className="text-white font-medium mb-4">
+                                    First Name
+                                </span>
+                                <input
+                                    type="text"
+                                    name="fname"
+                                    value={form.fname}
+                                    onChange={handleChange}
+                                    className="bg-primary py-4 px-6 text-secondary rounded-lg outline-none border-none font-medium"
+                                />
+                            </label>
+                            <label className="flex flex-col">
+                                <span className="text-white font-medium mb-4">
+                                    Last Name
+                                </span>
+                                <input
+                                    type="text"
+                                    name="lname"
+                                    value={form.lname}
+                                    onChange={handleChange}
+                                    className="bg-primary py-4 px-6 text-secondary rounded-lg outline-none border-none font-medium"
+                                />
+                            </label>
+                            <label className="flex flex-col">
+                                <span className="text-white font-medium mb-4">
+                                    Your number
+                                </span>
+                                <input
+                                    type="text"
+                                    name="number"
+                                    value={form.number}
+                                    onChange={handleChange}
+                                    className="bg-primary py-4 px-6 text-secondary rounded-lg outline-none border-none font-medium"
+                                />
+                            </label>
+                            <label className="flex flex-col">
+                                <span className="text-white font-medium mb-4">
+                                    Your email
+                                </span>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    className="bg-primary py-4 px-6 text-secondary rounded-lg outline-none border-none font-medium"
+                                />
+                            </label>
+                            <label className="flex flex-col">
+                                <span className="text-white font-medium mb-4">
+                                    Your Message
+                                </span>
+                                <textarea
+                                    rows={7}
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleChange}
+                                    className="bg-primary py-4 px-6 text-secondary rounded-lg outline-none border-none font-medium"
+                                />
+                            </label>
+
+                            <button
+                                type="submit"
+                                className="bg-secondary py-3 px-8 rounded-xl outline-none w-fit text-primary font-bold shadow-md shadow-slate-800"
+                            >
+                                {loading ? "Sending..." : "Send"}
+                            </button>
+                        </form>
+                    </motion.div>
+                </div>
+                <ToastContainer />
             </div>
-            <ToastContainer />
         </>
     );
 };
