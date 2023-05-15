@@ -70,12 +70,12 @@ const BlogPage = () => {
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <div class="inline-flex items-center justify-center w-full">
-                <hr class="w-64 h-1 my-8 bg-gjcgreen border-0 rounded " />
-                <div class="hidden md:block absolute px-4 -translate-x-1/2 bg-transparent left-1/2 ">
+            <div className="inline-flex items-center justify-center w-full">
+                <hr className="w-64 h-1 my-8 bg-gjcgreen border-0 rounded " />
+                <div className="hidden md:block absolute px-4 -translate-x-1/2 bg-transparent left-1/2 ">
                     <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-primary "
+                        className="w-5 h-5 text-primary "
                         viewBox="0 0 24 27"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +90,20 @@ const BlogPage = () => {
             <div className="my-10">
                 <div className="px-10 flex flex-col items-center">
                     <p className="w-full md:w-[70%]">{blog.content}</p>
+                </div>
+            </div>
+            <div className="flex justify-center items-center my-20 object-contain">
+                <div className="grid grid-cols-3 gap-8">
+                    <div className="bg-white w-96 h-96">
+                        <AdSense.Google
+                            client="ca-pub-7292810486004926"
+                            slot="7806394673"
+                            style={{ width: "100%", height: "100%" }}
+                            format=""
+                        />
+                    </div>
+                    <div className="bg-white w-96 h-96"></div>
+                    <div className="bg-white w-96 h-96"></div>
                 </div>
             </div>
         </>

@@ -92,14 +92,14 @@ const Overview = () => {
                 ))}
             </motion.div>
 
-            <motion.div variants={textVariant(1)}>
+            <motion.div variants={textVariant(0.5)}>
                 <h2 className={`${styles.sectionHeadText} mt-20`}>
                     Or Your Dream Apartment
                 </h2>
             </motion.div>
 
             <motion.div
-                variants={fadeIn("up", "spring", 1.5, 0.75)}
+                variants={fadeIn("up", "spring", 1, 0.75)}
                 className="mt-20 flex flex-wrap gap-7"
             >
                 {apartments.map((apartments, index) => (
@@ -123,14 +123,14 @@ const Overview = () => {
                 ))}
             </motion.div>
 
-            <motion.div variants={textVariant(2)}>
+            <motion.div variants={textVariant(1)}>
                 <h2 className={`${styles.sectionHeadText} mt-20`}>
                     Or Your Dream Land
                 </h2>
             </motion.div>
 
             <motion.div
-                variants={fadeIn("up", "spring", 3, 0.75)}
+                variants={fadeIn("up", "spring", 1.5, 0.75)}
                 className="mt-20 flex flex-wrap gap-7"
             >
                 {land.map((land, index) => (
@@ -152,14 +152,14 @@ const Overview = () => {
                 ))}
             </motion.div>
 
-            <motion.div variants={textVariant(3)}>
+            <motion.div variants={textVariant(1.5)}>
                 <h2 className={`${styles.sectionHeadText} mt-20`}>
                     Or Your Dream Space
                 </h2>
             </motion.div>
 
             <motion.div
-                variants={fadeIn("up", "spring", 4, 0.75)}
+                variants={fadeIn("up", "spring", 2, 0.75)}
                 className="mt-20 flex flex-wrap gap-7"
             >
                 {commercial.map((commercial, index) => (

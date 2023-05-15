@@ -183,7 +183,7 @@ const CommercialListing = () => {
                                 <li className="mb-2">
                                     <input
                                         type="number"
-                                        className="bg-gjcgreen outline-none h-10 p-5 flex w-full"
+                                        className="bg-gjcgreen placeholder:text-primary text-primary outline-none h-10 p-5 flex w-full"
                                         placeholder="Maximum Price"
                                         onChange={(event) => {
                                             event.target.value
@@ -204,7 +204,12 @@ const CommercialListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setPremium(!premium)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setOnRent(false);
+                                            setPremium(true);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Premium
                                     </button>
@@ -217,7 +222,12 @@ const CommercialListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnRent(!onRent)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setPremium(false);
+                                            setOnRent(!onRent);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Rent Only
                                     </button>
@@ -230,7 +240,12 @@ const CommercialListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnSale(!onSale)}
+                                        onClick={() => {
+                                            setOnRent(false);
+                                            setPremium(false);
+                                            setOnSale(!onSale);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Sale Only
                                     </button>

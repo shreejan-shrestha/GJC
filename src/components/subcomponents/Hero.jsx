@@ -19,7 +19,7 @@ const Hero = () => {
                 </div>
             </div>
             <div></div>
-            <div class="flex justify-center items-center h-[80vh] w-full pt-40">
+            <div className="flex justify-center items-center h-[80vh] w-full pt-40">
                 <HouseCanvas />
             </div>
             <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">

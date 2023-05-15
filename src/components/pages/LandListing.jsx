@@ -18,6 +18,7 @@ const LandListing = () => {
     const [selectedRange, setSelectedRange] = useState();
     const [onRent, setOnRent] = useState(false);
     const [onSale, setOnSale] = useState(false);
+    const [filterToggle, setFilterToggle] = useState(false);
 
     useEffect(() => {
         const loadResponse = async () => {
@@ -62,28 +63,18 @@ const LandListing = () => {
         if (premium) {
             let filter = land.filter((res) => res.premium == true);
             setFilteredLand(filter);
-        } else {
+        } else if (onRent) {
             setFilteredLand(land);
-        }
-    }, [premium]);
-
-    useEffect(() => {
-        if (onRent) {
             let filter = land.filter((res) => res.status == "Rent");
             setFilteredLand(filter);
-        } else {
+        } else if (onSale) {
             setFilteredLand(land);
-        }
-    }, [onRent]);
-
-    useEffect(() => {
-        if (onSale) {
             let filter = land.filter((res) => res.status == "Sale");
             setFilteredLand(filter);
         } else {
             setFilteredLand(land);
         }
-    }, [onSale]);
+    }, [filterToggle]);
 
     useEffect(() => {
         if (selectedRange) {
@@ -184,7 +175,7 @@ const LandListing = () => {
                                 <li className="mb-2">
                                     <input
                                         type="number"
-                                        className="bg-secondary text-primary outline-none h-10 p-5 flex w-full"
+                                        className="bg-gjcgreen placeholder:text-primary text-primary outline-none h-10 p-5 flex w-full"
                                         placeholder="Maximum Price"
                                         onChange={(event) => {
                                             event.target.value
@@ -200,12 +191,17 @@ const LandListing = () => {
                                 <li>
                                     <button
                                         type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-secondary dark:hover:text-primary  transition-all justify-start ${
+                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start ${
                                             premium
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setPremium(!premium)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setOnRent(false);
+                                            setPremium(true);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Premium
                                     </button>
@@ -218,7 +214,12 @@ const LandListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnRent(!onRent)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setPremium(false);
+                                            setOnRent(!onRent);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Rent Only
                                     </button>
@@ -231,7 +232,12 @@ const LandListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnSale(!onSale)}
+                                        onClick={() => {
+                                            setOnRent(false);
+                                            setPremium(false);
+                                            setOnSale(!onSale);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Sale Only
                                     </button>
@@ -239,7 +245,7 @@ const LandListing = () => {
                                 <li>
                                     <button
                                         type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-secondary dark:hover:text-primary  transition-all justify-start`}
+                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start`}
                                         onClick={() => {
                                             setSelectedRange(100000000);
                                         }}
@@ -250,7 +256,7 @@ const LandListing = () => {
                                 <li>
                                     <button
                                         type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-secondary dark:hover:text-primary  transition-all justify-start flex-wrap`}
+                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start`}
                                         onClick={() => {
                                             setSelectedRange(50000000);
                                         }}
@@ -261,7 +267,7 @@ const LandListing = () => {
                                 <li>
                                     <button
                                         type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-secondary dark:hover:text-primary  transition-all justify-start`}
+                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start`}
                                         onClick={() => {
                                             setSelectedRange(30000000);
                                         }}

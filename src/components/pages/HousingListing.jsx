@@ -15,6 +15,7 @@ const HousingListing = () => {
     const [selectedRange, setSelectedRange] = useState();
     const [onRent, setOnRent] = useState(false);
     const [onSale, setOnSale] = useState(false);
+    const [filterToggle, setFilterToggle] = useState(false);
 
     client.beforeSend = function (url, options) {
         options.headers = Object.assign({}, options.headers, {
@@ -66,28 +67,18 @@ const HousingListing = () => {
         if (premium) {
             let filter = housing.filter((res) => res.premium == true);
             setFilteredHousing(filter);
-        } else {
+        } else if (onRent) {
             setFilteredHousing(housing);
-        }
-    }, [premium]);
-
-    useEffect(() => {
-        if (onRent) {
             let filter = housing.filter((res) => res.status == "Rent");
             setFilteredHousing(filter);
-        } else {
+        } else if (onSale) {
             setFilteredHousing(housing);
-        }
-    }, [onRent]);
-
-    useEffect(() => {
-        if (onSale) {
             let filter = housing.filter((res) => res.status == "Sale");
             setFilteredHousing(filter);
         } else {
             setFilteredHousing(housing);
         }
-    }, [onSale]);
+    }, [filterToggle]);
 
     useEffect(() => {
         if (selectedRange) {
@@ -190,7 +181,7 @@ const HousingListing = () => {
                                 <li className="mb-2">
                                     <input
                                         type="number"
-                                        className="bg-gjcgreen outline-none h-10 p-5 flex w-full"
+                                        className="bg-gjcgreen placeholder:text-primary text-primary outline-none h-10 p-5 flex w-full"
                                         placeholder="Maximum Price"
                                         onChange={(event) => {
                                             event.target.value
@@ -211,7 +202,12 @@ const HousingListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setPremium(!premium)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setOnRent(false);
+                                            setPremium(!premium);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Premium
                                     </button>
@@ -224,7 +220,12 @@ const HousingListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnRent(!onRent)}
+                                        onClick={() => {
+                                            setOnSale(false);
+                                            setPremium(false);
+                                            setOnRent(!onRent);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Rent Only
                                     </button>
@@ -237,7 +238,12 @@ const HousingListing = () => {
                                                 ? "bg-secondary text-primary"
                                                 : "bg-white text-secondary"
                                         }`}
-                                        onClick={() => setOnSale(!onSale)}
+                                        onClick={() => {
+                                            setOnRent(false);
+                                            setPremium(false);
+                                            setOnSale(!onSale);
+                                            setFilterToggle(!filterToggle);
+                                        }}
                                     >
                                         Sale Only
                                     </button>
