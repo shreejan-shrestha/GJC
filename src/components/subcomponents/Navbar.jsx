@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { styles } from "../../styles";
 import { navLinks } from "../../constants";
-import { GJCLogo, menu, close } from "../../assets";
+import { GJCLogo, menu, close, darkmode } from "../../assets";
 
 const Navbar = ({ isHomePage }) => {
     const navigate = useNavigate();
@@ -19,11 +19,32 @@ const Navbar = ({ isHomePage }) => {
         navigate("/", { replace: true });
     };
 
+    useEffect(() => {
+        const isDark = localStorage.getItem("theme") === "dark";
+        const html = document.querySelector("html");
+        if (isDark) {
+            html.classList.add("dark");
+        } else {
+            html.classList.remove("dark");
+        }
+    }, []);
+
+    const handleToggleTheme = () => {
+        const html = document.querySelector("html");
+        html.classList.toggle("dark");
+        localStorage.setItem(
+            "theme",
+            html.classList.contains("dark") ? "dark" : "light"
+        );
+    };
+
     return (
         <nav
             className={`${styles.paddingX} ${
-                isHomePage == "/" ? "absolute" : "relative"
-            } w-full flex items-center py-5 top-0 z-40 bg-transparent`}
+                isHomePage == "/"
+                    ? "absolute bg-transparent"
+                    : "relative bg-white dark:bg-dark"
+            } w-full flex items-center py-5 top-0 z-40`}
         >
             <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
                 <div
@@ -45,7 +66,11 @@ const Navbar = ({ isHomePage }) => {
                                 active === nav.title
                                     ? "text-gjcgreen"
                                     : "text-primary"
-                            } hover:text-gjcgreen dark:hover:text-gray-400 transition-all text-[18px] font-medium cursor-pointer`}
+                            } hover:text-green-600 hover:dark:text-gjcgreen transition-all text-[18px] font-medium cursor-pointer ${
+                                isHomePage == "/"
+                                    ? "text-primary"
+                                    : "text-secondary"
+                            } dark:text-primary`}
                             onClick={() => {
                                 setActive(nav.title);
                                 handleNavigation();
@@ -55,6 +80,13 @@ const Navbar = ({ isHomePage }) => {
                         </li>
                     ))}
                 </ul>
+                <button className="px-4 z-100" onClick={handleToggleTheme}>
+                    <img
+                        src={darkmode}
+                        alt="Dark mode toggle"
+                        className="w-8 md:w-10"
+                    />
+                </button>
 
                 <div className="xl:hidden flex flex-1 justify-end items-center">
                     <img

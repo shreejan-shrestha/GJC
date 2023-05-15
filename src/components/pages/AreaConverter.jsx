@@ -96,9 +96,11 @@ const AreaConverter = () => {
 
     return (
         <>
-            <div className="absolute w-full">
-                <div className="flex justify-center px-5">
-                    <h2 className={`${styles.sectionHeadText}`}>
+            <div className="absolute w-full bg-white dark:bg-dark">
+                <div className="flex justify-center px-5 mt-10">
+                    <h2
+                        className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
+                    >
                         Area Converter
                     </h2>
                 </div>
@@ -118,7 +120,7 @@ const AreaConverter = () => {
                                         Ropani:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="number"
                                         value={ropani}
                                         onChange={(e) =>
@@ -139,7 +141,7 @@ const AreaConverter = () => {
                                         Aana:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="number"
                                         value={aana}
                                         onChange={(e) =>
@@ -166,7 +168,7 @@ const AreaConverter = () => {
                                         Paisa:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="number"
                                         value={paisa}
                                         onChange={(e) =>
@@ -193,7 +195,7 @@ const AreaConverter = () => {
                                         Daam:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="number"
                                         value={daam}
                                         onChange={(e) =>
@@ -227,7 +229,7 @@ const AreaConverter = () => {
                                         Sq. Feet:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="text"
                                         value={sqFt}
                                         onChange={(e) =>
@@ -248,7 +250,7 @@ const AreaConverter = () => {
                                         Sq. Meter:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="text"
                                         value={sqMeter}
                                         onChange={(e) =>
@@ -282,7 +284,7 @@ const AreaConverter = () => {
                                         Bigha:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="text"
                                         value={bigha}
                                         onChange={(e) =>
@@ -303,7 +305,7 @@ const AreaConverter = () => {
                                         Kattha:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="text"
                                         value={kattha}
                                         onChange={(e) =>
@@ -330,7 +332,7 @@ const AreaConverter = () => {
                                         Dhur:
                                     </label>
                                     <input
-                                        className="appearance-none rounded bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
+                                        className="appearance-none rounded-xl bg-primary w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline"
                                         type="text"
                                         value={dhur}
                                         onChange={(e) =>

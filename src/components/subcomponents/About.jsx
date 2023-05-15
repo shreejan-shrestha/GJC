@@ -11,12 +11,16 @@ const About = () => {
     return (
         <>
             <motion.div variants={textVariant()}>
-                <p className={`${styles.sectionHeadText}`}>About us</p>
+                <p
+                    className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
+                >
+                    About us
+                </p>
             </motion.div>
 
             <motion.p
                 variants={fadeIn("", "", 0.1, 1)}
-                className="mt-4 text-primary text-[17px] leading-[30px]"
+                className="mt-4 text-secondary dark:text-primary text-[17px] leading-[30px]"
             >
                 Welcome to Ghar Jagga Clinic, where we specialize in helping
                 clients buy, sell, rent, and flip properties. Our mission is to

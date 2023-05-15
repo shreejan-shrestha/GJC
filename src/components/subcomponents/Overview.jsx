@@ -62,7 +62,9 @@ const Overview = () => {
     return (
         <>
             <motion.div variants={textVariant()}>
-                <h2 className={`${styles.sectionHeadText}`}>
+                <h2
+                    className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
+                >
                     Find Your Dream House
                 </h2>
             </motion.div>
@@ -93,7 +95,9 @@ const Overview = () => {
             </motion.div>
 
             <motion.div variants={textVariant(0.5)}>
-                <h2 className={`${styles.sectionHeadText} mt-20`}>
+                <h2
+                    className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
+                >
                     Or Your Dream Apartment
                 </h2>
             </motion.div>
@@ -124,7 +128,9 @@ const Overview = () => {
             </motion.div>
 
             <motion.div variants={textVariant(1)}>
-                <h2 className={`${styles.sectionHeadText} mt-20`}>
+                <h2
+                    className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
+                >
                     Or Your Dream Land
                 </h2>
             </motion.div>
@@ -153,7 +159,9 @@ const Overview = () => {
             </motion.div>
 
             <motion.div variants={textVariant(1.5)}>
-                <h2 className={`${styles.sectionHeadText} mt-20`}>
+                <h2
+                    className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
+                >
                     Or Your Dream Space
                 </h2>
             </motion.div>

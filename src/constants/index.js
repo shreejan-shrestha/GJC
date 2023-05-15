@@ -34,7 +34,7 @@ const navLinks = [
 const services = [
     {
         icon: house,
-        title: "House",
+        title: "Housing",
     },
     {
         icon: land,

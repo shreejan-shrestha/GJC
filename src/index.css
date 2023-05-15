@@ -21,7 +21,7 @@
     font-family: "Allrounder Monument Test", sans-serif;
     font-weight: 350;
     scroll-behavior: smooth;
-    color-scheme: dark;
+    /* color-scheme: dark; */
 }
 
 .hash-span {

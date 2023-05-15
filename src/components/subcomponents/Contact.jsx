@@ -130,7 +130,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className="w-full">
+            <div className="absolute w-full pb-10">
                 <div
                     className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden `}
                 >

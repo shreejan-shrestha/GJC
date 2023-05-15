@@ -87,9 +87,11 @@ const LandListing = () => {
 
     return (
         <>
-            <div className="absolute w-full">
+            <div className="absolute w-full pb-10 bg-white dark:bg-dark">
                 <div className="flex flex-col justify-center items-center p-10">
-                    <h2 className={`${styles.sectionHeadText}`}>
+                    <h2
+                        className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
+                    >
                         Find Your Dream Land
                     </h2>
                     <div className="flex mt-10 md:w-[50vw] w-full">
@@ -97,7 +99,7 @@ const LandListing = () => {
                             <input
                                 type="search"
                                 id="search-dropdown"
-                                className="block p-2.5 w-full z-20 text-sm text-secondary bg-primary border-primary border-l-2 border rounded-xl focus:outline-none"
+                                className="block p-2.5 w-full z-20 text-sm dark:text-secondary text-primary bg-secondary dark:bg-primary placeholder:text-white dark:placeholder:text-gray-500 border-primary border-l-2 border rounded-xl focus:outline-none"
                                 placeholder="Search"
                                 onChange={(event) => {
                                     event.target.value
@@ -166,7 +168,7 @@ const LandListing = () => {
                             id="dropdown"
                             className={`${
                                 !toggle ? "hidden" : "flex"
-                            } z-10 bg-white rounded-xl shadow mx-10 w-[80vw] lg:w-[20vw] flex flex-col justify-center items-center py-5`}
+                            } z-10 bg-white rounded-xl shadow-card mx-10 w-[80vw] lg:w-[20vw] flex flex-col justify-center items-center py-5`}
                         >
                             <ul
                                 className="py-2 text-sm text-secondary flex flex-col"

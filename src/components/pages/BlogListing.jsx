@@ -27,9 +27,13 @@ const BlogListing = () => {
 
     return (
         <>
-            <div className="absolute w-full">
+            <div className="absolute w-full bg-white dark:bg-dark">
                 <div className="flex flex-col justify-center items-center p-10">
-                    <h2 className={`${styles.sectionHeadText}`}>GJC Blog</h2>
+                    <h2
+                        className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
+                    >
+                        GJC Blog
+                    </h2>
 
                     <div className="flex flex-wrap justify-center gap-7 px-2">
                         {blog.map((blog, index) => (
