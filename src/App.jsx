@@ -10,7 +10,6 @@ import Navbar from "./components/subcomponents/Navbar";
 import DetailPage from "./components/pages/DetailPage";
 import AppointmentContact from "./components/pages/AppointmentContact";
 import AreaConverter from "./components/pages/AreaConverter";
-import Footer from "./components/subcomponents/Footer";
 import PageTransition from "./components/subcomponents/PageTransition";
 import CommercialListing from "./components/pages/CommercialListing";
 import BlogListing from "./components/pages/BlogListing";
@@ -47,9 +46,6 @@ const App = () => {
                     <Route path="/areaconverter" element={<AreaConverter />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-                {/* <div>
-                    <Footer />
-                </div> */}
             </PageTransition>
         </>
     );

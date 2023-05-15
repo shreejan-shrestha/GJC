@@ -89,12 +89,14 @@ const Navbar = ({ isHomePage }) => {
                 </button>
 
                 <div className="xl:hidden flex flex-1 justify-end items-center">
-                    <img
-                        src={toggle ? close : menu}
-                        alt="menu"
-                        className="w-[28px] h-[28px] object-contain"
-                        onClick={() => setToggle(!toggle)}
-                    />
+                    <div className="p-1 dark:bg-transparent bg-gjcgreen rounded-md">
+                        <img
+                            src={toggle ? close : menu}
+                            alt="menu"
+                            className="w-[28px] h-[28px] object-contain"
+                            onClick={() => setToggle(!toggle)}
+                        />
+                    </div>
 
                     <div
                         className={`${
