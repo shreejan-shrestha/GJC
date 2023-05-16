@@ -66,7 +66,7 @@ const Navbar = ({ isHomePage }) => {
                                 active === nav.title
                                     ? "text-gjcgreen"
                                     : "text-primary"
-                            } hover:text-green-600 hover:dark:text-gjcgreen transition-all text-[18px] font-medium cursor-pointer ${
+                            } hover:text-gjcgreen hover:dark:text-gjcgreen transition-all text-[18px] font-medium cursor-pointer ${
                                 isHomePage == "/"
                                     ? "text-primary"
                                     : "text-secondary"

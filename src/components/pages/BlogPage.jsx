@@ -19,6 +19,8 @@ const BlogPage = () => {
         ["clean"],
     ];
 
+    const clientId = "ca-pub-7292810486004926";
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await client
@@ -81,18 +83,33 @@ const BlogPage = () => {
                         <p className="w-full md:w-[70%]">{blog.content}</p>
                     </div>
                 </div>
-                <div className="flex justify-center items-center my-20 object-contain">
-                    <div className="grid grid-cols-3 gap-8">
-                        <div className="bg-white w-96 h-96">
+                <div className="flex justify-center items-center flex-wrap">
+                    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+                        <div className="bg-blue-500 h-64">
                             <AdSense.Google
-                                client="ca-pub-7292810486004926"
-                                slot="7806394673"
+                                client={clientId}
+                                slot="3699977131"
                                 style={{ width: "100%", height: "100%" }}
-                                format=""
                             />
                         </div>
-                        <div className="bg-white w-96 h-96"></div>
-                        <div className="bg-white w-96 h-96"></div>
+                    </div>
+                    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+                        <div className="bg-red-500 h-64">
+                            <AdSense.Google
+                                client={clientId}
+                                slot="7639222149"
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                        </div>
+                    </div>
+                    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+                        <div className="bg-green-500 h-64">
+                            <AdSense.Google
+                                client={clientId}
+                                slot="5587773878"
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

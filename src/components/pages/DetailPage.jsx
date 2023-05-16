@@ -259,7 +259,7 @@ const DetailPage = () => {
                                     to={`/appointment/${category}/${detailId}`}
                                 >
                                     <div className="inset-0 flex">
-                                        <div className=" hover:bg-gjcgreen bg-primary hover:text-primary text-secondary w-auto h-10 p-4 rounded-full flex justify-center items-center transition cursor-pointer">
+                                        <div className=" hover:bg-secondary bg-gjcgreen text-primary w-auto h-10 p-4 rounded-full flex justify-center items-center transition cursor-pointer">
                                             <div className="object-contain">
                                                 Contact us
                                             </div>
