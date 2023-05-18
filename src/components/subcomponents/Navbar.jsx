@@ -101,7 +101,7 @@ const Navbar = ({ isHomePage }) => {
                     <div
                         className={`${
                             !toggle ? "hidden" : "flex"
-                        } p-6 bg-white absolute top-20 mt-10 right-0 my-2 min-w-full z-10`}
+                        } p-6 bg-white absolute top-20 right-0 my-2 min-w-full z-10 shadow-card`}
                     >
                         <ul className="list-none flex justify-end items-center flex-1 flex-col gap-4">
                             {navLinks.map((nav) => (
@@ -115,6 +115,7 @@ const Navbar = ({ isHomePage }) => {
                                     onClick={() => {
                                         setToggle(!toggle);
                                         setActive(nav.title);
+                                        handleNavigation();
                                     }}
                                 >
                                     <a href={`${nav.id}`}>{nav.title}</a>

@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { styles } from "../../styles";
 import { SectionWrapper } from "../../hoc";
-import { fadeIn, slideIn } from "../../utils/motion";
+import { fadeIn } from "../../utils/motion";
 import client from "../../lib/pocketbase";
 
 const Contact = () => {
@@ -39,8 +39,7 @@ const Contact = () => {
         const handleRegexErrorToast = () => {
             toast.error("Invalid phone number or email address!"),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -55,8 +54,7 @@ const Contact = () => {
                 "Thank you. We will get back to you as soon as possible."
             ),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -69,8 +67,7 @@ const Contact = () => {
         const handleErrorToast = () => {
             toast.error("Something went wrong. Please try again later."),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -130,7 +127,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className="absolute w-full pb-10">
+            <div className="pb-10">
                 <div
                     className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden `}
                 >
@@ -217,7 +214,12 @@ const Contact = () => {
                         </form>
                     </motion.div>
                 </div>
-                <ToastContainer />
+                <ToastContainer
+                    position="bottom-right"
+                    style={{
+                        position: "absolute",
+                    }}
+                />
             </div>
         </>
     );

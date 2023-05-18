@@ -43,8 +43,7 @@ const Appointment = () => {
         const handleRegexErrorToast = () => {
             toast.error("Invalid phone number or email address!"),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -59,8 +58,7 @@ const Appointment = () => {
                 "Thank you. We will get back to you as soon as possible."
             ),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -73,8 +71,7 @@ const Appointment = () => {
         const handleErrorToast = () => {
             toast.error("Something went wrong. Please try again later."),
                 {
-                    position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -136,7 +133,7 @@ const Appointment = () => {
 
     return (
         <>
-            <div className="w-full">
+            <div className="pb-10">
                 <div
                     className={`xl:mt-12 flex xl:flex-row flex-col-reverse justify-center overflow-hidden`}
                 >
@@ -223,7 +220,12 @@ const Appointment = () => {
                         </form>
                     </motion.div>
                 </div>
-                <ToastContainer />
+                <ToastContainer
+                    position="bottom-right"
+                    style={{
+                        position: "absolute",
+                    }}
+                />
             </div>
         </>
     );

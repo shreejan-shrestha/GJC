@@ -12,7 +12,6 @@ const CommercialListing = () => {
 
     const [premium, setPremium] = useState(false);
     const [priceRange, setPriceRange] = useState(99999999999999999);
-    const [selectedRange, setSelectedRange] = useState();
     const [onRent, setOnRent] = useState(false);
     const [onSale, setOnSale] = useState(false);
 
@@ -83,15 +82,6 @@ const CommercialListing = () => {
             setFilteredCommercial(commercial);
         }
     }, [onSale]);
-
-    useEffect(() => {
-        if (selectedRange) {
-            let filter = commercial.filter((res) => res.price <= selectedRange);
-            setFilteredCommercial(filter);
-        } else {
-            setFilteredCommercial(commercial);
-        }
-    }, [selectedRange]);
 
     return (
         <>
@@ -250,39 +240,6 @@ const CommercialListing = () => {
                                         }}
                                     >
                                         Sale Only
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start`}
-                                        onClick={() => {
-                                            setSelectedRange(100000000);
-                                        }}
-                                    >
-                                        Under Rs.100000000
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start flex-wrap`}
-                                        onClick={() => {
-                                            setSelectedRange(50000000);
-                                        }}
-                                    >
-                                        Under Rs.50000000
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        type="button"
-                                        className={`inline-flex w-full px-4 py-2 dark:hover:bg-gjcgreen dark:hover:text-primary  transition-all justify-start`}
-                                        onClick={() => {
-                                            setSelectedRange(30000000);
-                                        }}
-                                    >
-                                        Under Rs.30000000
                                     </button>
                                 </li>
                             </ul>

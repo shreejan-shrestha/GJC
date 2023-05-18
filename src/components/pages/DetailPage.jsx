@@ -41,7 +41,7 @@ const DetailPage = () => {
                         <Swiper
                             navigation={true}
                             modules={[Navigation]}
-                            className="h-full w-full"
+                            className="h-full w-[90%]"
                         >
                             {images.map((image, index) => (
                                 <SwiperSlide
@@ -57,7 +57,7 @@ const DetailPage = () => {
                             ))}
                         </Swiper>
                     </div>
-                    <div className="w-[100vw] px-10 flex flex-col items-center">
+                    <div className="w-full px-10 flex flex-col items-center">
                         <div>
                             <h2
                                 className={`text-secondary dark:text-primary font-black md:text-[60px] sm:text-[50px] text-[24px]`}

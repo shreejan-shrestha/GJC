@@ -31,8 +31,8 @@ const AreaConverter = () => {
     };
 
     const convertToAana = () => {
-        const ropaniValue = parseFloat(ropani);
-        const aanaValue = ropaniValue * 16;
+        const paisaValue = parseFloat(paisa);
+        const aanaValue = paisaValue / 4;
         setAana(aanaValue.toFixed(2));
     };
 

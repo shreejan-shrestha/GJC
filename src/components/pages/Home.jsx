@@ -1,7 +1,7 @@
 import About from "../subcomponents/About";
-import Contact from "../subcomponents/Contact";
 import Hero from "../subcomponents/Hero";
 import Overview from "../subcomponents/Overview";
+import ContactUs from "./ContactUs";
 import { StarsCanvas } from "../canvas";
 import React, { useState, useEffect } from "react";
 
@@ -35,7 +35,7 @@ const Home = () => {
                 <div>
                     <About />
                     <Overview />
-                    <Contact />
+                    <ContactUs />
                 </div>
             </div>
         </>
