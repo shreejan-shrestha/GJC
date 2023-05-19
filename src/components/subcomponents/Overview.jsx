@@ -16,85 +16,98 @@ const Overview = () => {
     const [commercial, setCommercial] = useState([]);
 
     useEffect(() => {
-        client
-            .collection("housing")
-            .getFullList({
+        const loadResponse = async () => {
+            const response = await client.collection("housing").getFullList({
                 filter: 'premium = true && status = "Sale"',
-            })
-            .then((data) => {
-                setHousing(data);
             });
+            if (response) {
+                setHousing(response);
+            }
+        };
+        loadResponse();
     }, []);
 
     useEffect(() => {
-        client
-            .collection("apartments")
-            .getFullList({
+        const loadResponse = async () => {
+            const response = await client.collection("apartments").getFullList({
                 filter: 'premium = true && status = "Sale"',
-            })
-            .then((data) => {
-                setApartments(data);
             });
+            if (response) {
+                setApartments(response);
+            }
+        };
+        loadResponse();
     }, []);
 
     useEffect(() => {
-        client
-            .collection("land")
-            .getFullList({
+        const loadResponse = async () => {
+            const response = await client.collection("land").getFullList({
                 filter: 'premium = true && status = "Sale"',
-            })
-            .then((data) => {
-                setLand(data);
             });
+            if (response) {
+                setLand(response);
+            }
+        };
+        loadResponse();
     }, []);
 
     useEffect(() => {
-        client
-            .collection("commercial")
-            .getFullList({
+        const loadResponse = async () => {
+            const response = await client.collection("commercial").getFullList({
                 filter: "premium = true",
-            })
-            .then((data) => {
-                setCommercial(data);
             });
+            if (response) {
+                setCommercial(response);
+            }
+        };
+        loadResponse();
     }, []);
 
     return (
         <>
-            <motion.div variants={textVariant()}>
+            <motion.div
+                variants={textVariant()}
+                className="flex justify-center"
+            >
                 <h2
                     className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
                 >
                     Find Your Dream House
                 </h2>
             </motion.div>
+            {housing ? (
+                <motion.div
+                    variants={fadeIn("up", "spring", 0, 0.75)}
+                    className="mt-20 flex flex-wrap gap-7 justify-center"
+                >
+                    {housing.map((housing, index) => (
+                        <OverviewCard
+                            key={`housing-${index}`}
+                            index={index}
+                            id={housing.id}
+                            title={housing.title}
+                            location={housing.location}
+                            district={housing.district}
+                            price={housing.price}
+                            image={client.getFileUrl(housing, housing.image)}
+                            status={housing.status}
+                            bedroom={housing.bedroom}
+                            livingRoom={housing.living_room}
+                            kitchen={housing.kitchen}
+                            bathroom={housing.bathroom}
+                            contact={housing.contact_number}
+                            category="housing"
+                        />
+                    ))}
+                </motion.div>
+            ) : (
+                Hello
+            )}
 
             <motion.div
-                variants={fadeIn("up", "spring", 0.5, 0.75)}
-                className="mt-20 flex flex-wrap gap-7"
+                variants={textVariant(0.5)}
+                className="flex justify-center"
             >
-                {housing.map((housing, index) => (
-                    <OverviewCard
-                        key={`housing-${index}`}
-                        index={index}
-                        id={housing.id}
-                        title={housing.title}
-                        location={housing.location}
-                        district={housing.district}
-                        price={housing.price}
-                        image={client.getFileUrl(housing, housing.image)}
-                        status={housing.status}
-                        bedroom={housing.bedroom}
-                        livingRoom={housing.living_room}
-                        kitchen={housing.kitchen}
-                        bathroom={housing.bathroom}
-                        contact={housing.contact_number}
-                        category="housing"
-                    />
-                ))}
-            </motion.div>
-
-            <motion.div variants={textVariant(0.5)}>
                 <h2
                     className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
                 >
@@ -104,7 +117,7 @@ const Overview = () => {
 
             <motion.div
                 variants={fadeIn("up", "spring", 1, 0.75)}
-                className="mt-20 flex flex-wrap gap-7"
+                className="mt-20 flex flex-wrap gap-7 justify-center"
             >
                 {apartments.map((apartments, index) => (
                     <OverviewCard
@@ -127,7 +140,10 @@ const Overview = () => {
                 ))}
             </motion.div>
 
-            <motion.div variants={textVariant(1)}>
+            <motion.div
+                variants={textVariant(1)}
+                className="flex justify-center"
+            >
                 <h2
                     className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
                 >
@@ -137,7 +153,7 @@ const Overview = () => {
 
             <motion.div
                 variants={fadeIn("up", "spring", 1.5, 0.75)}
-                className="mt-20 flex flex-wrap gap-7"
+                className="mt-20 flex flex-wrap gap-7 justify-center"
             >
                 {land.map((land, index) => (
                     <OverviewCard
@@ -158,7 +174,10 @@ const Overview = () => {
                 ))}
             </motion.div>
 
-            <motion.div variants={textVariant(1.5)}>
+            <motion.div
+                variants={textVariant(1.5)}
+                className="flex justify-center"
+            >
                 <h2
                     className={`${styles.sectionHeadText} mt-20 text-secondary dark:text-primary`}
                 >
@@ -168,7 +187,7 @@ const Overview = () => {
 
             <motion.div
                 variants={fadeIn("up", "spring", 2, 0.75)}
-                className="mt-20 flex flex-wrap gap-7"
+                className="mt-20 flex flex-wrap gap-7 justify-center"
             >
                 {commercial.map((commercial, index) => (
                     <OverviewCard
