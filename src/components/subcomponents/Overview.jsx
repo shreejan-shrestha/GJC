@@ -77,7 +77,7 @@ const Overview = () => {
             </motion.div>
             {housing ? (
                 <motion.div
-                    variants={fadeIn("up", "spring", 0, 0.75)}
+                    variants={fadeIn("up", "spring", 0.5, 0.75)}
                     className="mt-20 flex flex-wrap gap-7 justify-center"
                 >
                     {housing.map((housing, index) => (

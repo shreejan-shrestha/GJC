@@ -1,8 +1,10 @@
+import React from "react";
 import { styles } from "../../styles";
 import { Link, useParams } from "react-router-dom";
 import client from "../../lib/pocketbase";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { close } from "../../assets";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,6 +16,16 @@ const DetailPage = () => {
     const [isLand, setIsLand] = useState(false);
     const [isCommercial, setIsCommercial] = useState(false);
     const { category, detailId } = useParams();
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsOpen(false);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,11 +48,16 @@ const DetailPage = () => {
     if (list) {
         return (
             <>
-                <div className="absolute w-full bg-white dark:bg-dark">
+                <div
+                    className={`${
+                        isOpen && "blur-lg sm:filter-none sm:blur-0"
+                    }absolute w-full bg-white dark:bg-dark`}
+                >
                     <div>
                         <Swiper
                             navigation={true}
                             modules={[Navigation]}
+                            centeredSlides={true}
                             className="h-full w-[90%]"
                         >
                             {images.map((image, index) => (
@@ -51,7 +68,8 @@ const DetailPage = () => {
                                     <img
                                         src={client.getFileUrl(list, image)}
                                         alt="Housing images"
-                                        className="block w-full h-[80vh] md:h-[70vh]  object-cover md:object-contain"
+                                        className="block w-full h-[80vh] md:h-[70vh] object-cover md:object-contain cursor-pointer"
+                                        onClick={handleOpenModal}
                                     />
                                 </SwiperSlide>
                             ))}
@@ -270,6 +288,44 @@ const DetailPage = () => {
                         </div>
                     </div>
                 </div>
+                {isOpen && (
+                    <>
+                        <div className="fixed blur-none h-full inset-0 top-0 left-0 z-9999 block sm:hidden">
+                            <button className="text-primary fixed top-0 left-0 py-5 px-5 z-10">
+                                <img
+                                    src={close}
+                                    alt="menu"
+                                    className="w-[28px] h-[28px] object-contain"
+                                    onClick={handleCloseModal}
+                                />
+                            </button>
+                            <div className="w-full">
+                                <Swiper
+                                    navigation={true}
+                                    modules={[Navigation]}
+                                    centeredSlides={true}
+                                    className="h-full w-[100%] p-2"
+                                >
+                                    {images.map((image, index) => (
+                                        <SwiperSlide
+                                            key={index}
+                                            className="mb-10"
+                                        >
+                                            <img
+                                                src={client.getFileUrl(
+                                                    list,
+                                                    image
+                                                )}
+                                                alt="Housing images"
+                                                className="w-full object-contain rounded-xl"
+                                            />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
+                        </div>
+                    </>
+                )}
             </>
         );
     } else {

@@ -66,6 +66,10 @@
     border: none;
 }
 
+.swiper-wrapper {
+    align-items: center; /* add this will all relevant prefixes */
+}
+
 @keyframes mulShdSpin {
     0%,
     100% {
