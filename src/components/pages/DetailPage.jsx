@@ -295,11 +295,11 @@ const DetailPage = () => {
                                 <img
                                     src={close}
                                     alt="menu"
-                                    className="w-[28px] h-[28px] object-contain"
+                                    className="w-[28px] h-[28px] object-contain px-2 rounded-full bg-secondary"
                                     onClick={handleCloseModal}
                                 />
                             </button>
-                            <div className="w-full">
+                            <div className="w-full bg-secondary rounded-xl shadow-card">
                                 <Swiper
                                     navigation={true}
                                     modules={[Navigation]}
@@ -307,10 +307,7 @@ const DetailPage = () => {
                                     className="h-full w-[100%] p-2"
                                 >
                                     {images.map((image, index) => (
-                                        <SwiperSlide
-                                            key={index}
-                                            className="mb-10"
-                                        >
+                                        <SwiperSlide key={index}>
                                             <img
                                                 src={client.getFileUrl(
                                                     list,

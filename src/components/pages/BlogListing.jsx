@@ -32,7 +32,7 @@ const BlogListing = () => {
                     <h2
                         className={`${styles.sectionHeadText} text-secondary dark:text-primary`}
                     >
-                        GJC Blog
+                        Ghar Jagga Clinic
                     </h2>
 
                     <div className="flex flex-wrap justify-center gap-7 px-2">
